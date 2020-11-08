@@ -1,0 +1,29 @@
+body,
+html {
+  height: 100%;
+}
+
+div.jumbotron {
+  text-align: center;
+  background-color: black;
+  color: silver;
+  opacity: 0.95;
+  width: 100%;
+}
+
+div.container-fluid {
+  background-color: black;
+  color: silver;
+  opacity: 0.85;
+  width: 70%;
+}
+
+body {
+  background: url(images/image.jpg);
+  opacity: 1;
+  height: 100%;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-size: cover;
+}
