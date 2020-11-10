@@ -8,5 +8,6 @@ RUN pip install --no-cache-dir -r requirements.txt && \
 COPY . .
 RUN chown -R django:django .
 RUN chown root:root ./devopsToDoApp/settings.py
+EXPOSE 8000/tcp
 USER django
 CMD python manage.py runserver 0.0.0.0:8000 --noreload
