@@ -7,14 +7,13 @@ div.jumbotron {
   text-align: center;
   background-color: black;
   color: silver;
-  opacity: 0.95;
   width: 100%;
 }
 
 div.container-fluid {
   background-color: black;
   color: silver;
-  opacity: 0.85;
+  opacity: 1;
   width: 70%;
 }
 
@@ -26,4 +25,18 @@ body {
   background-attachment: fixed;
   background-repeat: repeat;
   background-size: cover;
+}
+
+h2 {
+  text-align: center;
+}
+
+img {
+  opacity: 1;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
 }

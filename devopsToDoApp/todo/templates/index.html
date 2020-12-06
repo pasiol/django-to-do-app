@@ -1,11 +1,14 @@
-
-{% extends "base_generic.html" %} {% block content %}
-<div class="row">
-    <div class="jumbotron">
-        <h1>DjangoToDoAppKubernetes</h1>
-        <p><em>Welcome to DjangoToDoAppKubernetes</em>, the DevOps with Kubernetes course project website</p>
+    {% extends "base_generic.html" %} {% block content %} {% load static %}
+    <div class="row">
+        <div class="jumbotron">
+            <h1>DjangoToDoAppKubernetes</h1>
+            <p><em>Welcome to DjangoToDoAppKubernetes</em>, the DevOps with Kubernetes course project website</p>
+        </div>
+        <div class="container">
+            <h2>Photo uploaded at container startup</h2>
+            <p><img src="{% static 'images/start-up-photo.jpg' %}" alt="Start up photo"></p>
+        </div>
     </div>
-</div>
-<div id="todo">
-</div>
-{% endblock %}
+    <div id="todo">
+    </div>
+    {% endblock %}
