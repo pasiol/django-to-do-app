@@ -8,9 +8,6 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 
 logger = logging.getLogger("todo_image_loader")
 
-
-
-
 class TodoConfig(AppConfig):
     name = 'todo'
     verbose_name = "Django to do app, k8s demo"
