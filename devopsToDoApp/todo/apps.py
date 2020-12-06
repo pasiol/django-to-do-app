@@ -23,7 +23,6 @@ class TodoConfig(AppConfig):
     def ready(self):
         self.loadStartUpPhoto()
 
-    # https://www.geeksforgeeks.org/python-uploading-images-in-django/
     def loadStartUpPhoto(self):
         response = None
         logger.info("Starting to import photo.")
