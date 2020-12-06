@@ -23,6 +23,16 @@ class TodoConfig(AppConfig):
     def ready(self):
         self.loadStartUpPhoto()
 
+    def loadImage(self, filename):
+        try:
+            response = requests.get("https://picsum.photos/1200", stream=True)
+            logger.info(f"Getting image status code: {response.status_code}")
+            with open(filename, "wb") as output_file:
+                shutil.copyfileobj(response.raw, output_file)
+        except Exception as error:
+            logger.error(f"Loading photo failed: {error}")
+        del response
+
     def loadStartUpPhoto(self):
         response = None
         logger.info("Starting to import photo.")
@@ -31,18 +41,11 @@ class TodoConfig(AppConfig):
             time_updated = self.modification_date(image_path)
             difference = datetime.datetime.now() - time_updated
             logger.info(f"Time difference: {difference}")
-        if difference.total_seconds() / 3600 > 12:
-            try:
-                response = requests.get("https://picsum.photos/1200", stream=True)
-                logger.info(f"Getting image status code: {response.status_code}")
-                logger.info(f"{image_path}")
-                with open(image_path, "wb") as output_file:
-                    shutil.copyfileobj(response.raw, output_file)
-
-            except Exception as error:
-                logger.error(f"Loading photo failed: {error}")
-            del response
+            if difference.total_seconds() / 3600 > 12:
+                self.loadImage(image_path)
+            else:
+                logger.info("Photo is updated within 12 hours.")
         else:
-            logger.info("Photo is updated within 12 hours.")
+            self.loadImage(image_path)
 
 
